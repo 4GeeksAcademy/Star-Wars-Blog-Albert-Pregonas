@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body{
+  font-size: ;
+  padding-top: 80px;
+  background-color: #0C1118;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  height: "1vh";
+  background-color: #01040A;
+}
+
+.charBox{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("https://images.unsplash.com/photo-1615457670617-6b32cc6720a0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhcnMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D");
+  background-size: cover;
+}
+
+.scroll-container {
+    overflow-x: auto; /* Permitir scroll horizontal */
+    padding-bottom: 10px; /* Separa la barra del contenido */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    height: 8px; /* Mantiene el espacio del scrollbar */
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Invisible por defecto */
+    border-radius: 4px;
+  }
+  
+  .scroll-container:hover::-webkit-scrollbar-thumb {
+    background-color: #888; /* Se vuelve visible en hover */
+  }
+  
+  .scroll-container:hover::-webkit-scrollbar-track {
+    background-color: #0C1118;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Más oscuro en hover sobre el scrollbar */
+  }
+
+  .homeCard{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1615457670617-6b32cc6720a0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhcnMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D");
+    background-size: contain;
+    font-size: 'Orbitron', sans-serif;
+  }
+
+  .footer{
+    background-color: #0C1118;
+  }
