@@ -22,28 +22,39 @@ export const PlanetDetail = () => {
         );
 
     return (
-        <div className="col-12 container-fluid d-flex justify-content-center align-items-center" style={{width:"100vw", backgroundColor:"#01040A", paddingTop:"70px", height:""}}>
-            <div className="charBox text-light d-flex justify-content-center align-items-center flex-row" style={{height:"75vh", width:"75vw"}}>
-                <div className="pe-5">
+        <div className="col-12 container-fluid d-flex justify-content-center align-items-center" style={{ width: "100vw", backgroundColor: "#01040A", paddingTop: "70px" }}>
+            <div className="charBox text-light d-flex justify-content-center align-items-center flex-row" style={{ height: "75vh", width: "75vw" }}>
+
+                <div className="contBox d-flex align-items-center justify-content-center position-relative" 
+                    style={{ height: "550px", width: "430px", overflow: "hidden" }}>
+
                     <img 
-                        className="rounded-2 img-fluid" 
+                        className="img-fluid" 
                         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/${id}.jpg`} 
                         alt={planet.name} 
-                        style={{ maxHeight: "400px", maxWidth: "100%", objectFit: "cover" }}
+                        style={{ height: "500px", width: "375px", objectFit: "cover" }}
                     />
-                </div>
-                <div className="rounded-2" style={{height:"400px", width:"290px", backgroundColor:"#241818"}}>
-                    <div className="d-flex mt-4 ms-3">
-                        <h2>{planet.name}</h2>
-                    </div>
-                    <div className="d-flex mt-5 ms-3 flex-column" style={{fontSize:"1.2em"}}>
-                        <p>Diameter: {planet.diameter}</p>
-                        <p>Climate: {planet.climate}</p>
-                        <p>Population: {planet.population}</p>
-                        <p>Terrain: {planet.terrain}</p>
+
+                    <div className="d-flex justify-content-center align-items-center text-dark position-absolute w-100" 
+                        style={{ height: "70px", bottom: "0", backgroundColor:"#001427" }}>
+                        <h2 className="m-0 text-light">{planet.name}</h2>
                     </div>
                 </div>
+
+                <div className="contBox d-flex align-items-center justify-content-center ms-4" style={{ height: "550px", width: "430px", objectFit: "cover" }}>
+                <div className="" style={{ height: "500px", width: "375px", backgroundColor:"#001427" }}>
+                    <div className="d-flex mt-5 ms-5 me-5 flex-column" style={{ fontSize: "1.2em" }}>
+                        <p>
+                            {planet.name} has a diameter of {planet.diameter} kilometers, with a {planet.climate} climate and a population of {planet.population}. Its terrain is {planet.terrain},
+                            and {planet.surface_water} of its surface is covered in water. With a rotation period of {planet.rotation_period} hours and an orbital period of {planet.orbital_period} 
+                            days, its gravity is {planet.gravity}, influencing everything that lives on its surface.
+                        </p>
+                    </div>
+                </div>
+                </div>
+
             </div>
         </div>
     );
 };
+

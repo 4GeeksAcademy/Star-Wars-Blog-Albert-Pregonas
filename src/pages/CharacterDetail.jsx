@@ -24,25 +24,34 @@ export const CharacterDetail = () => {
     return (
         <div className="col-12 container-fluid d-flex justify-content-center align-items-center" style={{ width: "100vw", backgroundColor: "#01040A", paddingTop: "70px" }}>
             <div className="charBox text-light d-flex justify-content-center align-items-center flex-row" style={{ height: "75vh", width: "75vw" }}>
-                <div className="pe-5">
+
+                <div className="contBox d-flex align-items-center justify-content-center position-relative" 
+                    style={{ height: "550px", width: "430px", overflow: "hidden" }}>
+
                     <img 
-                        className="rounded-2 img-fluid" 
+                        className="img-fluid" 
                         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/${id}.jpg`} 
                         alt={character.name} 
-                        style={{ maxHeight: "400px", maxWidth: "100%", objectFit: "cover" }}
+                        style={{ height: "500px", width: "375px", objectFit: "cover" }}
                     />
-                </div>
-                <div className="rounded-2" style={{ height: "400px", width: "290px", backgroundColor: "#241818" }}>
-                    <div className="d-flex mt-4 justify-content-center">
-                        <h2>{character.name}</h2>
-                    </div>
-                    <div className="d-flex mt-5 ms-3 flex-column" style={{ fontSize: "1.2em" }}>
-                        <p>Height: {character.height}</p>
-                        <p>Mass: {character.mass}</p>
-                        <p>Birth Year: {character.birth_year}</p>
-                        <p>Gender: {character.gender}</p>
+
+                    <div className="d-flex justify-content-center align-items-center text-dark position-absolute w-100" 
+                        style={{ height: "70px", bottom: "0", backgroundColor:"#0C111F" }}>
+                        <h2 className="m-0 text-light">{character.name}</h2>
                     </div>
                 </div>
+
+                <div className="contBox d-flex align-items-center justify-content-center ms-4" style={{ height: "550px", width: "430px", objectFit: "cover" }}>
+                <div className="" style={{ height: "500px", width: "375px", backgroundColor:"#0C111F" }}>
+                    <div className="d-flex mt-5 ms-5 me-5 flex-column" style={{ fontSize: "1.2em" }}>
+                        <p>
+                        {character.name} is a {character.gender} with {character.skin_color} skin and {character.hair_color} hair. Standing at {character.height} cm tall, 
+                        their {character.eye_color} eyes reveal a sharp, focused demeanor. Weighing {character.mass} kg, they possess both strength and agility, making them a formidable presence in any battle.
+                        </p>
+                    </div>
+                </div>
+                </div>
+
             </div>
         </div>
     );

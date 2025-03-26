@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body{
-  font-size: ;
   padding-top: 80px;
   background-color: #0C1118;
 }
@@ -17,17 +16,22 @@ body{
 
 .charBox{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("https://images.unsplash.com/photo-1615457670617-6b32cc6720a0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhcnMlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D");
+  url("https://images.unsplash.com/photo-1623476408624-721c9185d569?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3RhciUyMHdhcnN8ZW58MHx8MHx8fDA%3D");
+  background-size: cover;
+}
+
+.contBox{
+  background-image: url("https://images.hdqwalls.com/walls/thumb/the-ultimate-villain-darth-vader-sq.jpg");
   background-size: cover;
 }
 
 .scroll-container {
     overflow-x: auto; /* Permitir scroll horizontal */
-    padding-bottom: 10px; /* Separa la barra del contenido */
+    padding-bottom: 10px;
   }
   
   .scroll-container::-webkit-scrollbar {
-    height: 8px; /* Mantiene el espacio del scrollbar */
+    height: 8px;
   }
   
   .scroll-container::-webkit-scrollbar-thumb {
@@ -44,7 +48,7 @@ body{
   }
   
   .scroll-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Más oscuro en hover sobre el scrollbar */
+    background-color: #555;
   }
 
   .homeCard{
@@ -57,3 +61,40 @@ body{
   .footer{
     background-color: #0C1118;
   }
+
+  .star-wars-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #01040A;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #f1c40f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+.loading-text {
+    font-family: 'Star Jedi', sans-serif;
+    color: #f1c40f;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f, 0 0 15px #f1c40f; }
+    50% { text-shadow: 0 0 20px #f1c40f, 0 0 30px #f1c40f, 0 0 40px #f1c40f; }
+    100% { text-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f, 0 0 15px #f1c40f; }
+}

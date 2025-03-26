@@ -12,6 +12,13 @@ export const Navbar = () => {
       payload: fav,
     });
   };
+  
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   console.log("Store Favorites:", store.favorites);
 
@@ -20,17 +27,17 @@ export const Navbar = () => {
       <div className="d-flex align-items-center col-9 justify-content-between">
         <Link to="/">
           <span className="navbar-brand mb-0 h1">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star_Wars" style={{ width: "7vw" }} />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Star_Wars_Logo..png/640px-Star_Wars_Logo..png" alt="Star_Wars" style={{ width: "9vh" }} />
           </span>
         </Link>
         <div className="ps-5 pe-5 d-flex">
-          <Link to="/" className="pe-5 pt-3 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
+          <Link onClick={() => scrollToSection("characters")} className="pe-5 pt-3 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
             <p>Characters</p>
           </Link>
-          <Link to="/" className="pt-3 pe-5 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
+          <Link onClick={() => scrollToSection("planets")} className="pt-3 pe-5 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
             <p>Planets</p>
           </Link>
-          <Link to="/" className="pt-3 pe-5 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
+          <Link onClick={() => scrollToSection("vehicles")} className="pt-3 pe-5 text-light" style={{ textDecoration: "none", fontSize: "1.1em" }}>
             <p>Vehicles</p>
           </Link>
 

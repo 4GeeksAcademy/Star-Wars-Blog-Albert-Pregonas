@@ -18,7 +18,7 @@ export const Card = ({ title, id, type }) => {
   return (
     <div 
       className="card position-relative" 
-      style={{ width: "18rem", height: "350px", overflow: "hidden", border: "none" }} 
+      style={{ width: "18rem", height: "400px", overflow: "hidden", border: "none" }} 
     >
       <img 
         src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/${type}s/${id}.jpg`} 
