@@ -2,6 +2,12 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import { Card } from "../components/Cards.jsx"
 import { HomeCard } from "../components/HomeCard.jsx";
 
@@ -13,6 +19,20 @@ export const Home = () => {
   const [search, setSearch] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [gifIndex, setGifIndex] = useState(0);
+
+  const gifs = [
+    { src:'src/assets/img/568b078c8c3f9-unscreen.gif'},
+    { src: "src/assets/img/568b078c63ff1-unscreen.gif"},
+    { src: "src/assets/img/568b078ca42f1-unscreen.gif"},
+  ];
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * gifs.length);
+    setGifIndex(randomIndex);
+
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,10 +90,15 @@ export const Home = () => {
   return (
     <div className="text-center pt-5" style={{ height: "275vh", width: "100vw", backgroundColor: "#01040A" }}>
       {loading ? (
-        <div className="text-light d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+        <div className="text-light d-flex justify-content-center align-items-center" style={{ height: "100vh", paddingBottom:"20vh" }}>
 			<div className="star-wars-loader">
-				<div className="loader"></div>
-				<p className="loading-text">May the Force be with you!</p>
+      <img
+            src={gifs[gifIndex].src}
+            alt="Loading..."
+            style={{ width: "350px", height: "auto", paddingBottom:"130px", paddingLeft:"20px"}}
+            className="position-fixed"
+          />
+				<p className="loading-text mt-5 pt-2" style={{fontFamily:"Pixelify Sans"}}>May the Force be with you!</p>
 			</div>
         </div>
       ) : (
@@ -93,7 +118,7 @@ export const Home = () => {
               />
             </div>
             {filteredItems.length > 0 && (
-              <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "29vh" }}>
+              <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "420px" }}>
                 <ul className="text-light mt-3 d-flex flex-row gap-3 flex-nowrap">
                   {filteredItems.map((item) => (
                     <Link to={`/${item.type}/${item.uid}`} key={item.uid} style={{ textDecoration: "none" }}>
@@ -106,40 +131,64 @@ export const Home = () => {
           </form>
 
           <div id="characters" className="mt-5 d-flex flex-column">
-            <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "35vh" }}>
-              <div className="d-flex gap-3 flex-nowrap">
+            <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "420px" }}>
+              <Swiper
+                slidesPerView={4}
+                navigation
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                style={{maxWidth:"1500px"}}
+              >
                 {characters.map((char) => (
-                  <Link to={`/character/${char.uid}`} key={char.uid} style={{ textDecoration: "none" }}>
-                    <Card title={char.name} id={char.uid} type="character" />
-                  </Link>
+                  <SwiperSlide key={char.uid}>
+                    <Link to={`/character/${char.uid}`} style={{ textDecoration: "none" }}>
+                      <Card title={char.name} id={char.uid} type="character" />
+                    </Link>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </div>
           </div>
           
           <div id="planets" className="mt-5">
             <h1 className="text-light">Planets</h1>
-            <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "35vh" }}>
-              <div className="d-flex gap-3 flex-nowrap">
+            <div className="col-10 container-fluid mt-5 scroll-container f" style={{ maxHeight: "420px" }}>
+            <Swiper
+                slidesPerView={4}
+                navigation
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                style={{maxWidth:"1500px"}}
+              >
                 {planets.map((planet) => (
-                  <Link to={`/planet/${planet.uid}`} key={planet.uid} style={{ textDecoration: "none" }}>
-                    <Card title={planet.name} id={planet.uid} type="planet" />
-                  </Link>
+                  <SwiperSlide key={planet.uid}>
+                    <Link to={`/planets/${planet.uid}`} style={{ textDecoration: "none" }}>
+                      <Card title={planet.name} id={planet.uid} type="planet" />
+                    </Link>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </div>
           </div>
 
           <div id="vehicles" className="mt-5">
             <h1 className="text-light">Vehicles</h1>
-            <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "35vh" }}>
-              <div className="d-flex gap-3 flex-nowrap">
+            <div className="col-10 container-fluid mt-5 scroll-container" style={{ maxHeight: "420px" }}>
+              <Swiper
+                slidesPerView={4}
+                navigation
+                pagination={{ clickable: true }}
+                modules={[Navigation, Pagination]}
+                style={{maxWidth:"1500px"}}
+              >
                 {vehicles.map((vehicle) => (
-                  <Link to={`/vehicle/${vehicle.uid}`} key={vehicle.uid} style={{ textDecoration: "none" }}>
-                    <Card title={vehicle.name} id={vehicle.uid} type="vehicle" />
-                  </Link>
+                  <SwiperSlide key={vehicle.uid}>
+                    <Link to={`/vehicles/${vehicle.uid}`} style={{ textDecoration: "none" }}>
+                      <Card title={vehicle.name} id={vehicle.uid} type="vehicle" />
+                    </Link>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </div>
           </div>
         </>

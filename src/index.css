@@ -8,20 +8,14 @@ body{
 .navbar {
   position: fixed;
   top: 0;
+  height: 10vh;
   width: 100%;
   z-index: 1050;
-  height: "1vh";
   background-color: #01040A;
 }
 
 .charBox{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("https://images.unsplash.com/photo-1623476408624-721c9185d569?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c3RhciUyMHdhcnN8ZW58MHx8MHx8fDA%3D");
-  background-size: cover;
-}
-
-.contBox{
-  background-image: url("https://images.hdqwalls.com/walls/thumb/the-ultimate-villain-darth-vader-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),;
   background-size: cover;
 }
 
@@ -78,6 +72,7 @@ body{
     width: 50px;
     height: 50px;
     animation: spin 2s linear infinite;
+    position: fixed
 }
 
 .loading-text {
@@ -86,6 +81,7 @@ body{
     font-size: 1.3rem;
     margin-top: 20px;
     animation: glow 1.5s ease-in-out infinite;
+    position: fixed;
 }
 
 @keyframes spin {
@@ -97,4 +93,25 @@ body{
     0% { text-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f, 0 0 15px #f1c40f; }
     50% { text-shadow: 0 0 20px #f1c40f, 0 0 30px #f1c40f, 0 0 40px #f1c40f; }
     100% { text-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f, 0 0 15px #f1c40f; }
+}
+
+/* Cambiar color de los bullets de la paginación */
+.swiper-pagination-bullet {
+  background-color: #f1c40f !important; /* El color que desees */
+  width: 12px;  /* Ajusta el tamaño del bullet si es necesario */
+  height: 12px;
+}
+
+/* Cambiar el color de los bullets al estar activos */
+.swiper-pagination-bullet-active {
+  background-color: #f1c40f !important; /* Un color distinto para el estado activo */
+}
+
+.swiper-button-next {
+  color: #f1c40f; /* Cambia esto al color que prefieras */
+}
+
+/* Cambiar color de la flecha de anterior (prev) */
+.swiper-button-prev {
+  color: #f1c40f; /* Cambia esto al color que prefieras */
 }
